@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="./style.css">
-    
 </head>
 <body>
     
     <div class="glass-container">
         <div class="login-box">
             <h2>Login</h2>
-            <form action="/login"  method="POST">
+            <form action="/admin/login" method="POST"> <!-- Update the action to /admin/login -->
 
                 <input type="text" id="username" name="username" required placeholder="Username">
                 
@@ -27,6 +26,12 @@
                 <button type="submit">Login</button>
 
                 <p>Don't have an account? <a href="/register" id="register">Register</a></p>
+                
+                <!-- Display error message if present -->
+                <div th:if="${error}" style="color: red;"> <!-- This requires Thymeleaf; ensure your controller sets this error attribute -->
+                    <p th:text="${error}"></p>
+                </div>
+
             </form>
         </div>
     </div>

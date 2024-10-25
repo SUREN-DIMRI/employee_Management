@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Choose Your Role</title>
+    <style>
+        body { display: flex; align-items: center; justify-content: center; height: 100vh; font-family: Arial, sans-serif; }
+        .dialog { text-align: center; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .role-btn { margin: 10px; padding: 10px 20px; font-size: 16px; cursor: pointer; border: none; background-color: #007bff; color: white; border-radius: 5px; }
+        .role-btn:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="dialog">
+        <h2>Welcome! Please Select Your Role</h2>
+        <form action="/verifyCode" method="POST">
+            <label for="role">Choose your role:</label>
+            <select id="role" name="role" required>
+                <option value="admin">Admin</option>
+                <option value="hr">HR</option>
+                <option value="tl">TL</option>
+                <option value="employee">Employee</option>
+            </select>
+            <br>
+            <label for="code">Enter Code:</label>
+            <input type="password" id="code" name="code" required>
+            <br>
+            <button type="submit" class="role-btn">Submit</button>
+        </form>
+        <div th:if="${error}" style="color: red;">
+            <p th:text="${error}"></p>
+        </div>
+    </div>
+</body>
+</html>
